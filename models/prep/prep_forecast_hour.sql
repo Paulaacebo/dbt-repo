@@ -11,4 +11,4 @@ add_features AS (
     FROM forecast_hour_data
 )
 SELECT *
-FROM add_features;
+FROM add_features

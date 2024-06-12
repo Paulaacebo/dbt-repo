@@ -42,4 +42,4 @@ forecast_hour_data AS (
     FROM forecast_hour_raw
 )
 SELECT *
-FROM forecast_hour_data;
+FROM forecast_hour_data
