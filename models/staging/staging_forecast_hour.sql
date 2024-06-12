@@ -5,7 +5,7 @@ WITH forecast_hour_raw AS (
         (extracted_data -> 'location' ->> 'region')::VARCHAR(255) AS region,
         (extracted_data -> 'location' ->> 'country')::VARCHAR(255) AS country,
         (extracted_data -> 'forecast' -> 'forecastday' -> 0 ->> 'date')::DATE AS date,
-        json_array_elements(extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'hour') AS hour_data
+        json_array_elements(extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'hour')::json AS hour_data
     FROM {{source("staging", "weather_raw")}}
 ),
 -- Second Step: Extract detailed hourly weather information
@@ -18,9 +18,9 @@ forecast_hour_data AS (
         (hour_data ->> 'time')::TIMESTAMP AS time,
         (hour_data ->> 'temp_c')::NUMERIC AS temp_c,
         (hour_data ->> 'is_day')::INT AS is_day,
-        (hour_data ->> 'condition' ->> 'text')::VARCHAR(255) AS condition_text,
-        (hour_data ->> 'condition' ->> 'icon')::VARCHAR(255) AS condition_icon,
-        (hour_data ->> 'condition' ->> 'code')::VARCHAR(255) AS condition_code,
+        (hour_data -> 'condition' ->> 'text')::VARCHAR(255) AS condition_text,
+        (hour_data -> 'condition' ->> 'icon')::VARCHAR(255) AS condition_icon,
+        (hour_data -> 'condition' ->> 'code')::VARCHAR(255) AS condition_code,
         (hour_data ->> 'wind_kph')::NUMERIC AS wind_kph,
         (hour_data ->> 'wind_degree')::NUMERIC AS wind_degree,
         (hour_data ->> 'wind_dir')::VARCHAR(255) AS wind_dir,
@@ -43,3 +43,4 @@ forecast_hour_data AS (
 )
 SELECT *
 FROM forecast_hour_data
+
