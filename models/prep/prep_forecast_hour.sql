@@ -1,6 +1,6 @@
 WITH forecast_hour_data AS (
     SELECT * 
-    FROM {{ref('staging_forecast_hour')}}
+    FROM "climate"."public"."staging_forecast_hour"
 ),
 add_features AS (
     SELECT *
@@ -12,4 +12,3 @@ add_features AS (
 )
 SELECT *
 FROM add_features;
-
