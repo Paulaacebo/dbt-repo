@@ -1,6 +1,6 @@
 WITH forecast_day_data AS (
     SELECT * 
-    FROM staging_forecast_day
+FROM {{ref('staging_forecast_day')}}
 ),
 add_features AS (
     SELECT *,
