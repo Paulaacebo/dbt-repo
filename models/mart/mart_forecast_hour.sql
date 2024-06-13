@@ -15,18 +15,15 @@ filtering_ordering_features AS (
             ,city
             ,region
             ,country
-            ,time_epoch
-            ,date_time
-            ,is_day
             ,time
-            ,hour
-            ,month_of_year
-            ,day_of_week
+            ,date
+            ,temp_c
+            ,is_day
             ,condition_text
             ,condition_icon
-            ,condition_icon_md
             ,condition_code
-            ,temp_c
+            ,month_of_year
+            ,day_of_week
             ,wind_kph
             ,wind_degree
             ,wind_dir
