@@ -11,25 +11,21 @@ adding_features AS (
 ),
 filtering_ordering_features AS (
         SELECT 
-            date
-            ,city
+            city
             ,region
             ,country
-            ,time
             ,date
+            ,time
             ,temp_c
             ,is_day
             ,condition_text
             ,condition_icon
             ,condition_code
-            ,month_of_year
-            ,day_of_week
             ,wind_kph
             ,wind_degree
             ,wind_dir
             ,pressure_mb
             ,precip_mm
-            ,snow_cm
             ,humidity
             ,cloud
             ,feelslike_c
@@ -42,7 +38,9 @@ filtering_ordering_features AS (
             ,chance_of_snow
             ,vis_km
             ,gust_kph
-            ,uv
+            ,uv     
+            ,month_of_year
+            ,day_of_week
             FROM adding_features
 )
 SELECT * 
