@@ -25,20 +25,20 @@ filtering_features AS (
             ,daily_will_it_snow
             ,daily_chance_of_snow
             ,condition_text
-            -- ,condition_icon
-            -- ,condition_code
-            -- ,max_wind_kph
-            -- ,avg_vis_km
+            ,condition_icon
+            -- condition_code
+            ,max_wind_kph
+            ,avg_vis_km
             -- ,uv
-            -- ,sunrise
-            -- ,sunset
-            -- ,moonrise
-            -- ,moonset
+            ,sunrise
+            ,sunset
+            ,moonrise
+            ,moonset
             -- ,moon_phase
             -- ,moon_illumination
-            -- ,day_of_month
-            -- ,month_of_year
-            -- ,day_of_week
+            ,day_of_month
+            ,month_of_year
+            ,day_of_week
         FROM joining_day_location
 ),          
 aggregations_adding_features AS (
