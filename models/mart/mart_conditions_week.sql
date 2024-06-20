@@ -8,7 +8,7 @@ WITH joining_day_location AS (
 filtering_features AS (
         SELECT 
             year_and_week,
-            ,week_of_year
+            week_of_year
             ,year
             ,city
             ,region
