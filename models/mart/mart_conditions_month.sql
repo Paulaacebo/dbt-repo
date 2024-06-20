@@ -7,7 +7,8 @@ WITH joining_day_location AS (
 -- Another CTE is created (filtering_features) selecting specific columns
 filtering_features AS (
         SELECT 
-            year_and_week,
+            year_and_week
+            ,month_of_year
             ,week_of_year
             ,year
             ,city
@@ -22,13 +23,13 @@ filtering_features AS (
             ,total_precip_mm
             ,total_snow_cm
             ,avg_humidity
-            -- daily_will_it_rain
-            -- daily_chance_of_rain
-            -- daily_will_it_snow
-            -- daily_chance_of_snow
-            -- condition_text
-            -- condition_icon
-            -- condition_code
+            ,daily_will_it_rain  -- Descomentar esta columna
+            ,daily_chance_of_rain -- Descomentar esta columna
+            ,daily_will_it_snow  -- Descomentar esta columna
+            ,daily_chance_of_snow  -- Descomentar esta columna
+            ,condition_text  -- Descomentar esta columna
+            -- ,condition_icon
+            -- ,condition_code
             ,max_wind_kph
             ,avg_vis_km
             -- ,uv
@@ -43,11 +44,11 @@ filtering_features AS (
             ,day_of_week
         FROM joining_day_location
 ), 
- -- Performs aggregation operations on the filtering_features dataset. 
- -- It calculates aggregated values like maximum temperature, 
- -- minimum temperature, average temperature   
- -- Conditions based on condition_text 
- -- categorize days into sunny, rainy, snowy, or other weather types.  
+-- Performs aggregation operations on the filtering_features dataset. 
+-- It calculates aggregated values like maximum temperature, 
+-- minimum temperature, average temperature   
+-- Conditions based on condition_text 
+-- categorize days into sunny, rainy, snowy, or other weather types.  
 aggregations_adding_features AS (
         SELECT 
             year_and_week  -- grouping on
@@ -95,4 +96,4 @@ aggregations_adding_features AS (
     ORDER BY city
 )
 SELECT * 
-FROM aggregations_adding_features
+FROM aggregations_adding_features;
