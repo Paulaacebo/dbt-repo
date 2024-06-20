@@ -78,7 +78,7 @@ aggregations_adding_features AS (
                                          'Moderate snow', 'Light sleet showers', 'Patchy heavy snow',
                                          'Patchy moderate snow', 'Moderate or heavy snow with thunder',
                                          'Moderate or heavy sleet', 'Blizzard', 'Blowing snow', 'Patchy snow posible', 
-                                         'Moderate or heavy showers of ice pellets', 'Patchy light snow with thunder',
+                                         'Moderate o heavy showers of ice pellets', 'Patchy light snow with thunder',
                                          'Patchy sleet posible', 'Ice pellets') THEN 1 ELSE 0 END) AS snowy_days
     FROM filtering_features
     GROUP BY year_and_week, month_of_year, week_of_year, year, city, region, country, lat, lon, timezone_id
@@ -88,3 +88,4 @@ aggregations_adding_features AS (
 -- Selección final de la CTE agregada
 SELECT * 
 FROM aggregations_adding_features;
+
