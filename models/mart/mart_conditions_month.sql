@@ -87,5 +87,5 @@ aggregations_adding_features AS (
     ORDER BY city
 )
 SELECT * 
-FROM aggregations_adding_features; -- Eliminar el punto y coma dentro de la subconsulta
+FROM aggregations_adding_features -- Eliminar el punto y coma dentro de la subconsulta
 
